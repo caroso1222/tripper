@@ -1,0 +1,32 @@
+md-slider {
+  width: 100%;
+}
+
+h4 {
+  margin-bottom: 0;
+  font-size: 12px;
+  opacity: 0.7;  
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+md-dialog-actions {
+  justify-content: flex-end;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+input {
+  text-align: center;
+}
+
+.label {
+  font-size: 16px;
+}

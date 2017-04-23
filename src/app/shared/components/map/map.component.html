@@ -1,0 +1,57 @@
+<div class="options">
+  <md-checkbox class="example-margin" [(ngModel)]="showJams">Mostrar congestión vehicular</md-checkbox>
+</div>
+<sebm-google-map [latitude]="mapCenter.lat" 
+[longitude]="mapCenter.lng" 
+[zoom]="11" 
+(boundsChange)="onBoundsChange($event)">
+  <sebm-google-map-marker *ngFor="let hole of holes" 
+    (markerClick)="onMarkerClick(hole)"
+    [iconUrl]="'https://image.ibb.co/nmgXt5/asdf.png'"
+    [openInfoWindow]="true"
+    [latitude]="hole.location.latitude" 
+    [longitude]="hole.location.longitude">
+      <sebm-google-map-info-window [disableAutoPan]="true">
+        <div class="info">
+          <div class="info__indicator-wrapper">
+            <p class="info__indicator-value info__indicator-value--{{getHoleColor(hole)}}">{{ hole.the_indicator.toFixed(2) }}</p>
+            <p class="info__indicator-label">Índice de severidad</p>
+          </div>
+          <div class="info__section-wrapper">
+            <p class="info__section-header">Rutas afectadas</p>
+            <p class="info__section-value">{{ hole.numRoutesNotNormalized }}</p>
+          </div>
+          <div class="info__section-wrapper">
+            <p class="info__section-header">Número de reportes de usuarios</p>
+            <p class="info__section-value">20</p>
+          </div>
+          <div class="info__section-wrapper">
+            <p class="info__section-header">Congestión vehicular en zona</p>
+            <p class="info__section-value jam-value">Alta</p>
+          </div>
+          <div class="info__section-wrapper">
+            <p class="info__section-header">Número de accidentes cercanos</p>
+            <p class="info__section-value">12</p>
+          </div>
+        </div>
+      </sebm-google-map-info-window>
+  </sebm-google-map-marker>
+  <div *ngIf="showJams">
+    <sebm-map-polygon *ngFor="let jam of jams" 
+      [strokeWeight]="1" 
+      [paths]="jam.polygon" 
+      [fillOpacity]="0.4"
+      [fillColor]="getJamColor(jam)" 
+      [strokeColor]="'rgba(0,0,0,0.0)'">
+    </sebm-map-polygon>
+  </div>
+  <sebm-google-map-polyline [strokeColor]="'rgba(255, 0, 0, 0.5)'">
+      <sebm-google-map-polyline-point *ngFor="let point of route" 
+        [latitude]="point.latitude" 
+        [longitude]="point.longitude">
+      </sebm-google-map-polyline-point>
+  </sebm-google-map-polyline>
+</sebm-google-map>
+
+
+

@@ -1,0 +1,67 @@
+.sebm-google-map-container {
+  display: flex;
+  flex: 1 1 auto;
+  height: 100%;
+  width: 100%;
+}
+
+.options {
+  background: #f1f1f1;
+  border-right: 1px solid #e8e8e8;
+  padding: 11px 22px 3px;
+  position: relative;
+  box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.16);
+  z-index: 2;
+}
+
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  height: 100%;
+  flex-direction: column;
+}
+
+.jam-value {
+  color: red;
+}
+
+.info {
+  width: calc(100% + 22px);
+  &__indicator-wrapper {
+    background: #F7F7F7;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 2px;
+    margin-bottom: 19px;
+  }
+
+  &__indicator-value {
+    font-size: 30px;
+    &--high {
+      color: red;
+    }
+    &--medium {
+      color: orange;
+    }
+    &--low {
+      color: green;
+    }
+  } 
+
+  &__indicator-label, &__section-header {
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.5;
+    font-size: 10px;
+    margin-bottom: 7px;
+  }
+
+  &__indicator-label {
+    margin-bottom: 0;
+  }
+
+  &__section-value {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}

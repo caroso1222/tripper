@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <h3 md-subheader>
+    <div class="row">
+      <div class="col-9">Ubicación bache</div>
+      <div class="col-3">Indicador</div>
+    </div>
+  </h3>
+  <div class="list">
+    <md-list>
+      <md-list-item *ngFor="let hole of holes" (click)="onHoleClicked(hole)">
+        <div class="row hole">
+          <div class="col-9">
+            {{hole.street}} 
+          </div>
+          <div class="col-3 text-center">
+            <span class="hole__indicator hole__indicator--{{getHoleColor(hole)}}">{{hole.the_indicator.toFixed(2)}} </span>
+          </div>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+</div>

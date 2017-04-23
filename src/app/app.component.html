@@ -1,1 +1,16 @@
-<sebm-google-map [latitude]="lat" [longitude]="lng"></sebm-google-map>
+<div class="wrapper">
+  <div class="header">
+    <h1> <img src="/assets/logo.svg" alt="logo" class="logo">RoadTripper</h1>
+    <div class="header__btns">
+      <button md-button (click)="openDialog()">Configuración</button>
+    </div>
+  </div>
+  <div class="row inner m-0">
+    <div class="col-8 p-0">
+      <map></map>
+    </div>
+    <div class="col-4 p-0">
+      <holes-list [holes]="holes"></holes-list>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<h1 md-dialog-title>Configuración de pesos</h1>
+
+<div class="row input-group m-0">
+  <p class="label col-9 p-0">Factor por número de rutas afectadas</p>
+  <md-input-container class="example-full-width col-3 p-0">
+    <input mdInput [(ngModel)] = "routeFactor" type="number">
+  </md-input-container>
+</div>
+<div class="row input-group m-0">
+  <p class="label col-9 p-0">Factor por número de reportes de usuario</p>
+  <md-input-container class="example-full-width col-3 p-0">
+    <input mdInput [(ngModel)] = "reportsFactor" type="number">
+  </md-input-container>
+</div>
+<div class="row input-group m-0">
+  <p class="label col-9 p-0">Factor por congestión vehicular</p>
+  <md-input-container class="example-full-width col-3 p-0">
+    <input mdInput [(ngModel)] = "jamFactor" type="number">
+  </md-input-container>
+</div>
+<div class="row input-group m-0">
+  <p class="label col-9 p-0">Factor por accidentalidad</p>
+  <md-input-container class="example-full-width col-3 p-0">
+    <input mdInput [(ngModel)] = "accidentFactor" type="number">
+  </md-input-container>
+</div>
+
+<p class="error" *ngIf="getFactorSum() !== 1">La suma de los valores debe ser igual a 1</p>
+
+<md-dialog-actions>
+  <button type="button" md-button (click)="save()" [disabled]="getFactorSum() !== 1">Guardar</button>
+</md-dialog-actions>
+

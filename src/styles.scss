@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+$font-family: 'Roboto', Helvetica, sans-serif;
+
+html, body {
+  font-family: $font-family;
+  color: #1e282c;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  overflow-x: hidden;
+  background: #fbfbfb;
+}
+
+input[type=text], button, h1, h2, h3, h4, h5, h6, p {
+  font-family: $font-family;
+}
+
+
+
+button {
+  cursor: pointer;
+}
+
+* {
+  outline: none !important;
+  box-sizing: border-box;
+}
+
+
+.gm-style-iw > div {
+  overflow: visible !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
